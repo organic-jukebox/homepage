@@ -4,14 +4,17 @@
 import datetime
 from pelican import signals
 import os
+import urllib.request
 
 def load_csv(generator):
 
-    dirname = os.path.dirname(os.path.abspath(__file__))
-    filepath = os.path.join(dirname, 'concerts.csv')
-    with open(filepath, 'r', encoding='utf-8') as f:
-        doc = f.read()
+    # dirname = os.path.dirname(os.path.abspath(__file__))
+    # filepath = os.path.join(dirname, 'concerts.csv')
+    # with open(filepath, 'r', encoding='utf-8') as f:
+    #    doc = f.read()
 
+    data = urllib.request.urlopen("https://raw.githubusercontent.com/organic-jukebox/concert-archive/master/concerts.csv").read(50000)
+    doc = data.decode("utf-8")
     csv_list = filter(None, doc.split('\n'))
     data = []
 
