@@ -1,224 +1,221 @@
-    {% extends "base.html" %}
-    {% block content %}
+{% extends "base.html" %}
+{% block content %}
 
-        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Espen Reinertsen</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="page-scroll" href="#concerts">Concerts</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#bio">Bio</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#music">Music</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
-        <section class="bg-dark" id="news">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <h3 class="section-heading">New album Nattsyntese is out! Get it on vinyl from <a href="http://susannasonata.com/product/nattsyntese-espen-reinertsen-vinyl/">SusannaSonata</a>.
-                    </div>
-                    <div class="col-lg-8 col-lg-offset-2 text-center pad-top">
-                        <p>"...en av platehøstens høydepunkter for den som er interessert i pop av det eventyrlige slaget."</p>
-                        <p class="text-author"><small>&mdash; Audun Vinger, Dagens Næringsliv</small></p>
-                        <p>"Reinertsen skaper seg et helt eget univers det er vanskelig å motstå."</p>
-                        <p class="text-author"><small>&mdash; Ando Woltmann, Morgenbladet</small></p>
-                        <p>"...et snodig, men gledelig møte med organisk elektronika og forseggjorte setninger."</p>
-                        <p class="text-author"><small>&mdash; Charlotte Myrbråten, Månedens beste i Klassekampen</small></p>
-                        <p>"Rett og slett en gave til folk som er glad i musikk."</p>
-                        <p class="text-author"><small>&mdash; Line Skille-Aspholm, disharmoni.no (10/10)</small></p>        
-                    </div>
-                </div>
-                <div class="row popup-gallery pad-top no-gutter">
-                    <div class="col-md-12 col-sm-12">
-                        <a href="http://susannasonata.com/product/nattsyntese-espen-reinertsen-vinyl/" class="portfolio-box">
-                            <img src="https://res.cloudinary.com/dyfxbzvm7/image/upload/q_auto:eco/v1498235120/SONATA035-B-1500_iahk5p.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Espen Reinertsen
-                                    </div>
-                                    <div class="project-name">
-                                        Nattsyntese
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="concerts" class="bg-dark no-padding-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <h2 class="section-heading text-center">Live dates:</h2>
-                        <hr class="primary">
-                        <div class="concerts text-muted">
-                            <table class="table table-no-border">
-                                <tbody>
-                                    {% if concerts_upcoming() %}
-                                    {% for concert in concerts_upcoming() %}
-                                        <tr>
-                                            <td class="text-right date text-faded"><h3><em>{{ concert.date.strftime('%b %d, %Y') }}</em></h3></td>
-                                            <td class="text-left location text-faded">
-                                                <p><strong>{{ concert.band }}</strong>
-                                                    <br>{{ concert.country }}, {{ concert.city }}, {{ concert.venue }}
-                                                    {% if concert.text is defined %}
-                                                    <br>{{ concert.text }}
-                                                    {% endif %}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                    {% else %}
-                                        <tr>
-                                            <td class="text-center">Nothing scheduled at the moment</td>
-                                        </tr>
-                                    {% endif %}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="text-center">
-                            <p><strong><a href="/archive.html">Concert archive <i class="fa fa-long-arrow-right"></i></a></strong></p>
-                        </div>  
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-bright" id="bio">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <h2 class="section-heading">Bio</h2>
-                        <hr class="light">
-                        <p>Starting off as a saxophone player and improvising musician, Espen's work and interest has diverged into music making and music production of different sorts, as heard on his solo albums Forgaflingspop and Nattsyntese. Using his own voice, lyrics and programming, these albums reflect his desire to bring musical elements together to form an unusual blend.</p>
-
-                        <p>
-    Playing saxophone is still one of his major occupations, and he can be heard contributing in renowned ensembles such as Streifenjunko, Christian Wallumrød Ensemble, Koboku Senju and Trondheim Jazz Orchestra. Awards include SpareBank 1 SMN JazZtipendiat, De Unges Lindemanpris, Spellemannsprisen (Norwegian Grammy) and Trondheim Jazzfestivals Talentpris.
-    </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-dark" id="music">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 text-center">
-                        <h2 class="section-heading">Music</h2>
-                        <hr class="light">
-                        <ul class="list-inline">
-                        <li class="music-services text-center">
-                            <h1><a href="https://espenreinertsen.bandcamp.com">Bandcamp</a></h1>
-                        </li>
-                        <li class="music-services text-center">
-                            <h1><a href="https://itun.es/no/dbZdi">iTunes</a></h1>
-                        </li>
-                        <li class="music-services text-center">
-                            <h1><a href="https://open.spotify.com/artist/0zG4NtjHpAF9BiS03gMTQZ">Spotify</a></h1>
-                        </li>
-                        <li class="music-services text-center">
-                            <h1><a href="http://tidal.com/album/77034100">Tidal</a></h1>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 text-center col-xs-10 col-xs-offset-1 music-services">
-                        <h1><a href="http://susannasonata.com/product/forgaflingspop-espen-reinertsen-vinyl/" class="susanna-sonata">Forgaflingspop vinyl</a></h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 text-center col-xs-10 col-xs-offset-1 music-services">
-                        <h1><a href="http://susannasonata.com/product/nattsyntese-espen-reinertsen-vinyl/" class="susanna-sonata">Nattsyntese vinyl</a></h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="no-padding bg-dark" id="portfolio">
-            <div class="container-fluid">
-                <div class="row no-gutter popup-gallery">
-                    <div class="col-md-6 col-sm-6">
-                        <a href="http://susannasonata.com/product/forgaflingspop-espen-reinertsen-vinyl/" class="portfolio-box">
-                            <img src="https://res.cloudinary.com/dyfxbzvm7/image/upload/q_auto:eco/v1495356280/Forgaflingspop_title-1200px_w7jt7m.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Espen Reinertsen
-                                    </div>
-                                    <div class="project-name">
-                                        Forgaflingspop
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <a href="http://susannasonata.com/product/nattsyntese-espen-reinertsen-vinyl/" class="portfolio-box">
-                            <img src="https://res.cloudinary.com/dyfxbzvm7/image/upload/q_auto:eco/v1498235120/SONATA035-B-1500_iahk5p.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Espen Reinertsen
-                                    </div>
-                                    <div class="project-name">
-                                        Nattsyntese
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact bg-dark">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h2 class="section-heading">Booking and stuff:</h2>
-                        <hr class="primary">
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <p>espenrei@gmail.com</p>
-                    </div>
-                </div>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Espen Reinertsen</a>
             </div>
 
-            <div class="container">
-                <ul class="list-inline list-social">
-                    <li class="facebook">                       
-                        <a href="https://www.facebook.com/espenreinertsenmusic/"><i class="fa fa-facebook"></i></a>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#concerts">Concerts</a>
                     </li>
-                    <li class="twitter">                       
-                        <a href="https://twitter.com/espenreinertsen/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <li>
+                        <a class="page-scroll" href="#bio">Bio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#music">Music</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
-        </section>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <section class="bg-dark" id="news">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h3 class="section-heading">New album Nattsyntese is out! Get it on vinyl from <a href="http://susannasonata.com/product/nattsyntese-espen-reinertsen-vinyl/">SusannaSonata</a>.
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center pad-top">
+                    <p>"...en av platehøstens høydepunkter for den som er interessert i pop av det eventyrlige slaget."</p>
+                    <p class="text-author"><small>&mdash; Audun Vinger, Dagens Næringsliv</small></p>
+                    <p>"Reinertsen skaper seg et helt eget univers det er vanskelig å motstå."</p>
+                    <p class="text-author"><small>&mdash; Ando Woltmann, Morgenbladet</small></p>
+                    <p>"...et snodig, men gledelig møte med organisk elektronika og forseggjorte setninger."</p>
+                    <p class="text-author"><small>&mdash; Charlotte Myrbråten, Månedens beste i Klassekampen</small></p>
+                    <p>"Rett og slett en gave til folk som er glad i musikk."</p>
+                    <p class="text-author"><small>&mdash; Line Skille-Aspholm, disharmoni.no (10/10)</small></p>        
+                </div>
+            </div>
+            <div class="row popup-gallery pad-top no-gutter">
+                <div class="col-md-12 col-sm-12">
+                    <a href="http://susannasonata.com/product/nattsyntese-espen-reinertsen-vinyl/" class="portfolio-box">
+                        <img src="https://res.cloudinary.com/dyfxbzvm7/image/upload/q_auto:eco/v1498235120/SONATA035-B-1500_iahk5p.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Espen Reinertsen
+                                </div>
+                                <div class="project-name">
+                                    Nattsyntese
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    {% endblock content %}
+    <section id="concerts" class="bg-dark no-padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading text-center">Live dates:</h2>
+                    <hr class="primary">
+                    <div class="concerts text-muted">
+                        <table class="table table-no-border">
+                            <tbody>
+                                {% if concerts_upcoming() %}
+                                {% for concert in concerts_upcoming() %}
+                                    <tr>
+                                        <td class="text-right date text-faded"><h3><em>{{ concert.date.strftime('%b %d, %Y') }}</em></h3></td>
+                                        <td class="text-left location text-faded">
+                                            <p><strong>{{ concert.band }}</strong>
+                                                <br>{{ concert.country }}, {{ concert.city }}, {{ concert.venue }}
+                                                {% if concert.text is defined %}
+                                                <br>{{ concert.text }}
+                                                {% endif %}
+                                            </p>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td class="text-center">Nothing scheduled at the moment</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center">
+                        <p><strong><a href="/archive.html">Concert archive <i class="fa fa-long-arrow-right"></i></a></strong></p>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-bright" id="bio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Bio</h2>
+                    <hr class="light">
+                    <p>Starting off as a saxophone player and improvising musician, Espen's work and interest has diverged into music making and music production of different sorts, as heard on his solo albums Forgaflingspop and Nattsyntese. Using his own voice, lyrics and programming, these albums reflect his desire to bring musical elements together to form an unusual blend.</p>
+
+                    <p>
+Playing saxophone is still one of his major occupations, and he can be heard contributing in renowned ensembles such as Streifenjunko, Christian Wallumrød Ensemble, Koboku Senju and Trondheim Jazz Orchestra. Awards include SpareBank 1 SMN JazZtipendiat, De Unges Lindemanpris, Spellemannsprisen (Norwegian Grammy) and Trondheim Jazzfestivals Talentpris.
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-dark" id="music">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h2 class="section-heading">Music</h2>
+                    <hr class="light">
+                    <ul class="list-inline">
+                    <li class="music-services text-center">
+                        <h1><a href="https://espenreinertsen.bandcamp.com">Bandcamp</a></h1>
+                    </li>
+                    <li class="music-services text-center">
+                        <h1><a href="https://itun.es/no/dbZdi">iTunes</a></h1>
+                    </li>
+                    <li class="music-services text-center">
+                        <h1><a href="https://open.spotify.com/artist/0zG4NtjHpAF9BiS03gMTQZ">Spotify</a></h1>
+                    </li>
+                    <li class="music-services text-center">
+                        <h1><a href="http://tidal.com/album/77034100">Tidal</a></h1>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center col-xs-10 col-xs-offset-1 music-services">
+                    <h1><a href="http://susannasonata.com/product/forgaflingspop-espen-reinertsen-vinyl/" class="susanna-sonata">Forgaflingspop vinyl</a></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center col-xs-10 col-xs-offset-1 music-services">
+                    <h1><a href="http://susannasonata.com/product/nattsyntese-espen-reinertsen-vinyl/" class="susanna-sonata">Nattsyntese vinyl</a></h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="no-padding bg-dark" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-md-6 col-sm-6">
+                    <a href="http://susannasonata.com/product/forgaflingspop-espen-reinertsen-vinyl/" class="portfolio-box">
+                        <img src="https://res.cloudinary.com/dyfxbzvm7/image/upload/q_auto:eco/v1495356280/Forgaflingspop_title-1200px_w7jt7m.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Espen Reinertsen
+                                </div>
+                                <div class="project-name">
+                                    Forgaflingspop
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <a href="http://susannasonata.com/product/nattsyntese-espen-reinertsen-vinyl/" class="portfolio-box">
+                        <img src="https://res.cloudinary.com/dyfxbzvm7/image/upload/q_auto:eco/v1498235120/SONATA035-B-1500_iahk5p.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Espen Reinertsen
+                                </div>
+                                <div class="project-name">
+                                    Nattsyntese
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-heading">Booking and stuff:</h2>
+                    <hr class="primary">
+                </div>
+                <div class="col-md-12 text-center">
+                    <p>espenrei@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <ul class="list-inline list-social">
+                <li class="facebook">                       
+                    <a href="https://www.facebook.com/espenreinertsenmusic/"><i class="fa fa-facebook"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+{% endblock content %}
